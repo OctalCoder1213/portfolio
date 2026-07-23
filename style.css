@@ -193,3 +193,38 @@ body {
     color: #b0b0b0;
     line-height: 1.7;
 }
+
+
+
+.dashboard {
+
+    margin: 120px 8%;
+}
+
+.dashboard h2 {
+    font-size: 3rem;
+    margin-bottom: 50px;
+}
+
+.dashboard-grid {
+
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 25px;
+}
+
+.dashboard-card {
+    background: #151515;
+    border-radius: 15px;
+    padding: 30px;
+}
+
+.dashboard-card h3 {
+    color: #999;
+    margin-bottom: 20px;
+}
+
+.dashboard-card p {
+    font-size: 2rem;
+    font-weight: 600;
+}
