@@ -215,8 +215,10 @@ body {
 
 .dashboard-card {
     background: #151515;
+    border: 1px solid #2a2a2a;
     border-radius: 15px;
     padding: 30px;
+    transition: all 0.3s ease;
 }
 
 .dashboard-card h3 {
@@ -227,4 +229,61 @@ body {
 .dashboard-card p {
     font-size: 2rem;
     font-weight: 600;
+}
+.dashboard-card:hover {
+    transform: translateY(-8px);
+    /*border-color: #08ee26;*/
+    border-color:#6366f1;    
+     box-shadow: 0 15px 35px rgba(99, 102, 241, 0.18);
+}
+
+
+
+.contact {
+    padding: 120px 8%;
+    text-align: center;
+}
+
+.contact h2 {
+    font-size: 3rem;
+    margin-bottom: 50px;
+}
+
+#contact-form {
+    max-width: 700px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+#contact-form input,#contact-form textarea {
+    padding: 18px;
+    background: #161616;
+    border: 1px solid #2a2a2a;
+    border-radius: 12px;
+    color: white;
+    font-size: 1rem;
+    outline: none;
+    transition: 0.3s;
+
+}
+#contact-form input:focus,
+#contact-form textarea:focus {
+    border-color: #6366f1;
+
+}
+#contact-form button {
+    padding: 18px;
+    background: #6366f1;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+
+}
+#contact-form button:hover {
+    transform: translateY(-3px);
+    background: #5458e8;
 }

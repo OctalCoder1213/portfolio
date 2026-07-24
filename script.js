@@ -51,3 +51,53 @@ async function updateStock() {
 
 updateStock();
 setInterval(updateStock, 10000);
+
+
+
+async function testBackend() {
+    const response = await fetch("http://localhost:3000");
+    const data = await response.json();
+    console.log(data);
+}
+testBackend();
+
+
+const contactForm = document.getElementById("contact-form");
+contactForm.addEventListener("submit", async (event) => {
+    
+    event.preventDefault();
+const name = document.getElementById("name").value;
+const email = document.getElementById("email").value;
+const message = document.getElementById("message").value;
+
+    const response = await fetch("http://localhost:3000/contact", {
+    method: "POST",
+
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+        name,
+        email,
+        message
+    })
+});
+const data = await response.json();
+console.log(data);
+
+console.log(name);
+console.log(email);
+console.log(message);})
+
+
+
+const visitorCount = document.getElementById("visitor-count");
+async function updateVisitors() {
+    await fetch("http://localhost:3000/visit", {
+        method: "POST"
+    });
+    const response = await fetch("http://localhost:3000/visitors");
+    const data = await response.json();
+    visitorCount.textContent = data.visitors;
+}
+updateVisitors();
