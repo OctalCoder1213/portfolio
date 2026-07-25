@@ -2,6 +2,7 @@ const loadingScreen = document.querySelector(".loading-screen");
 const letterA = document.querySelector(".letter-a");
 const letterK = document.querySelector(".letter-k");
 const logo = document.querySelector(".logo");
+const API = "https://portfolio-vh1i.onrender.com";
 setTimeout(() => {
 
     letterA.style.transform = "translateX(0)";
@@ -39,7 +40,7 @@ const stockPrice = document.getElementById("stock-price");
 const stockChange = document.getElementById("stock-change");
 async function updateStock() {
     try {
-        const response = await fetch("/stock");
+        const response = await ffetch(`${API}/stock`);
         const data = await response.json();
 
         stockPrice.textContent = "$" + data.c.toFixed(2);
@@ -64,7 +65,7 @@ const name = document.getElementById("name").value;
 const email = document.getElementById("email").value;
 const message = document.getElementById("message").value;
 
-    const response = await fetch("/contact", {
+    const response = await fetch(`${API}/contact`, {
     method: "POST",
 
     headers: {
@@ -91,14 +92,14 @@ async function updateVisitors() {
 
     if (!localStorage.getItem("visited")) {
 
-        await fetch("/visit", {
+        await fetch(`${API}/visit`, {
             method: "POST"
         });
 
         localStorage.setItem("visited", "true");
     }
 
-    const response = await fetch("/visitors");
+    const response = await fetch(`${API}/visitors`);
     const data = await response.json();
 
     visitorCount.textContent = data.visitors;
