@@ -38,28 +38,22 @@ setInterval(updateWeather, 60000);
 const stockPrice = document.getElementById("stock-price");
 const stockChange = document.getElementById("stock-change");
 async function updateStock() {
-    const response = await fetch(
-        "https://finnhub.io/api/v1/quote?symbol=AAPL&token=d9gt58hr01qvjm7odgkgd9gt58hr01qvjm7odgl0");
-    const data = await response.json();
-    stockPrice.textContent = "$" + data.c;
-    stockChange.textContent =data.d + " (" + data.dp + "%)";
-    if (data.d >= 0) {
-    stockChange.style.color = "#22c55e";}
-   else {
-    stockChange.style.color = "#ef4444";}}
+    try {
+        const response = await fetch("/stock");
+        const data = await response.json();
 
-
+        stockPrice.textContent = "$" + data.c.toFixed(2);
+        stockChange.textContent =`${data.d.toFixed(2)} (${data.dp.toFixed(2)}%)`;
+          stockChange.style.color =data.d >= 0 ? "#22c55e" : "#ef4444";
+    } 
+    catch {
+        stockPrice.textContent = "Unavailable";
+        stockChange.textContent = "";
+    }
+}
 updateStock();
 setInterval(updateStock, 10000);
 
-
-
-async function testBackend() {
-    const response = await fetch("http://localhost:3000");
-    const data = await response.json();
-    console.log(data);
-}
-testBackend();
 
 
 const contactForm = document.getElementById("contact-form");
@@ -70,7 +64,7 @@ const name = document.getElementById("name").value;
 const email = document.getElementById("email").value;
 const message = document.getElementById("message").value;
 
-    const response = await fetch("http://localhost:3000/contact", {
+    const response = await fetch("/contact", {
     method: "POST",
 
     headers: {
@@ -83,21 +77,45 @@ const message = document.getElementById("message").value;
     })
 });
 const data = await response.json();
-console.log(data);
-
-console.log(name);
-console.log(email);
-console.log(message);})
+if (data.success) {
+    alert("✅ Thanks! I'll get back to you soon.");
+    contactForm.reset();
+} else {
+    alert("❌ Something went wrong. Please try again.");
+}})
 
 
 
 const visitorCount = document.getElementById("visitor-count");
 async function updateVisitors() {
-    await fetch("http://localhost:3000/visit", {
-        method: "POST"
-    });
-    const response = await fetch("http://localhost:3000/visitors");
+
+    if (!localStorage.getItem("visited")) {
+
+        await fetch("/visit", {
+            method: "POST"
+        });
+
+        localStorage.setItem("visited", "true");
+    }
+
+    const response = await fetch("/visitors");
     const data = await response.json();
+
     visitorCount.textContent = data.visitors;
 }
 updateVisitors();
+
+
+document.getElementById("github-btn").addEventListener("click", () => {
+    window.open("https://github.com/OctalCoder1213", "_blank");
+});
+
+document.getElementById("resume-btn").addEventListener("click", () => {
+    window.open("/resume.pdf", "_blank");
+});
+
+document.getElementById("contact-btn").addEventListener("click", () => {
+    document.getElementById("contact").scrollIntoView({
+        behavior: "smooth"
+    });
+});
