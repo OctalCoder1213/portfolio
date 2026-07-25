@@ -40,7 +40,7 @@ const stockPrice = document.getElementById("stock-price");
 const stockChange = document.getElementById("stock-change");
 async function updateStock() {
     try {
-        const response = await ffetch(`${API}/stock`);
+        const response = await fetch(`${API}/stock`);
         const data = await response.json();
 
         stockPrice.textContent = "$" + data.c.toFixed(2);
