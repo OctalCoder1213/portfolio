@@ -334,3 +334,269 @@ body {
     color: #7a7a7a;
     font-size: .9rem;
 }
+
+@media (max-width: 900px) {
+
+    .navbar {
+        padding: 18px 5%;
+    }
+
+    .nav-links {
+        gap: 20px;
+    }
+
+    .hero h1 {
+        font-size: 4rem;
+    }
+
+    .dashboard-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .project-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    /* NAVBAR */
+
+    .navbar {
+        padding: 16px 5%;
+    }
+
+    .logo {
+        font-size: 1.6rem;
+    }
+
+    .nav-links {
+        gap: 14px;
+    }
+
+    .nav-links a {
+        font-size: 0.85rem;
+    }
+
+
+
+    .hero {
+        min-height: 100vh;
+        padding: 100px 20px 40px;
+    }
+
+    .hero h1 {
+        font-size: 3rem;
+        line-height: 1.1;
+        margin-bottom: 15px;
+    }
+
+    .hero p {
+        font-size: 1rem;
+        line-height: 1.6;
+        margin-bottom: 30px;
+        max-width: 350px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+        max-width: 280px;
+        gap: 12px;
+    }
+
+    .hero-buttons button {
+        width: 100%;
+        padding: 13px 20px;
+    }
+
+
+
+    .intro-logo {
+        font-size: 4.5rem;
+    }
+
+    .letter-a {
+        transform: translateX(60px);
+    }
+
+    .letter-k {
+        transform: translateX(-60px);
+    }
+
+
+
+    .about,
+    .projects,
+    .dashboard {
+        margin: 80px 5%;
+    }
+
+    .about {
+        padding: 0;
+    }
+
+    .about h2,
+    .projects h2,
+    .dashboard h2,
+    .contact h2 {
+        font-size: 2.2rem;
+        margin-bottom: 30px;
+    }
+
+
+    .about p {
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+
+
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .dashboard-card {
+        padding: 20px;
+    }
+
+    .dashboard-card p {
+        font-size: 1.7rem;
+    }
+
+
+
+
+    .project-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .project-card {
+        padding: 24px;
+    }
+
+
+
+    .contact {
+        padding: 80px 5%;
+    }
+
+    #contact-form {
+        width: 100%;
+        gap: 15px;
+    }
+
+    #contact-form input,
+    #contact-form textarea {
+        width: 100%;
+        padding: 16px;
+        font-size: 1rem;
+    }
+
+    #contact-form button {
+        padding: 16px;
+    }
+
+
+    /* FOOTER */
+
+    .footer {
+        margin-top: 70px;
+        padding: 35px 5%;
+    }
+
+    .footer-socials {
+        gap: 25px;
+    }
+
+}
+@media (max-width: 600px) {
+
+    .navbar {
+        padding: 15px 20px;
+    }
+
+    .nav-links {
+        gap: 10px;
+    }
+
+    .nav-links a {
+        font-size: 12px;
+    }
+
+    .hero {
+        padding: 100px 20px 40px;
+    }
+
+    .hero h1 {
+        font-size: 3rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        width: 250px;
+        gap: 12px;
+    }
+
+    .hero-buttons button {
+        width: 100%;
+    }
+
+    .intro-logo {
+        font-size: 4rem;
+    }
+
+
+    .dashboard,
+    .projects,
+    .about {
+        margin: 70px 20px;
+    }
+
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .about h2,
+    .projects h2,
+    .dashboard h2,
+    .contact h2 {
+        font-size: 2rem;
+    }
+
+
+    .about p {
+        font-size: 1rem;
+    }
+
+
+    .contact {
+        padding: 70px 20px;
+    }
+
+
+    #contact-form {
+        width: 100%;
+    }
+
+
+    .footer {
+        padding: 30px 20px;
+    }
+
+}
